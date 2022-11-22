@@ -1,0 +1,40 @@
+﻿@using BulkyBook.Models;
+@model ICollection<Category>
+
+
+<partial name="_Notification" />
+<div class="card shadow-lg p-3 mb-5 rounded mx-auto">
+    <h2 class="text-center">Categories</h2>
+    <div class="d-flex flex-row-reverse">
+        <a asp-controller="Category" asp-action="Create" class="btn btn-outline-primary mb-3">Create Category</a>
+    </div>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Display Order</th>
+                <th>Created Date</th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                    <tr>
+                        <td>@category.Id</td>
+                        <td>@category.Name</td>
+                        <td>@category.DisplayOrder</td>
+                        <td>@category.CreatedDateTime</td>
+                        <td>
+                            <a asp-area="Admin" asp-controller="Category" asp-action="Edit" asp-route-id="@category.Id" class="btn btn-outline-primary">Edit</a>
+                            <a asp-area="Admin" asp-controller="Category" asp-action="Delete" asp-route-id="@category.Id" class="btn btn-outline-danger mx-2">Delete</a>
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

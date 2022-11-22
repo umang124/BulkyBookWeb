@@ -1,0 +1,80 @@
+﻿@model Product
+
+<div class="card shadow-lg p-3 mb-5 rounded mx-auto col-7">
+    <form method="post" asp-action="Upsert" asp-controller="Product" enctype="multipart/form-data">
+        <div class="row">
+            <h3 class="text-center">Edit Product</h3>
+            <div class="form-floating mb-3 ps-2">
+                <input asp-for="Title" type="text" class="form-control" id="floatingInput" placeholder="Title">
+                <label asp-for="Title">Title</label>
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2">
+                <textarea asp-for="Description" rows="3" type="text" class="form-control" id="floatingInput" placeholder="Description"></textarea>
+                <label asp-for="Description">Description</label>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2 col-6">
+                <input asp-for="ISBN" type="text" class="form-control" id="floatingInput" placeholder="ISBN" />
+                <label asp-for="ISBN">ISBN</label>
+                <span asp-validation-for="ISBN" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2 col-6">
+                <input asp-for="Author" type="text" class="form-control" id="floatingInput" placeholder="Author">
+                <label asp-for="Author">Author</label>
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2 col-6">
+                <input asp-for="ListPrice" type="text" class="form-control" id="floatingInput" placeholder="ListPrice">
+                <label asp-for="ListPrice">ListPrice</label>
+                <span asp-validation-for="ListPrice" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2 col-6">
+                <input asp-for="Price" type="text" class="form-control" id="floatingInput" placeholder="Price">
+                <label asp-for="Price">Price</label>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2 col-6">
+                <input asp-for="Price50" type="text" class="form-control" id="floatingInput" placeholder="Price50">
+                <label asp-for="Price50">Price50</label>
+                <span asp-validation-for="Price50" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3 ps-2 col-6">
+                <input asp-for="Price100" type="text" class="form-control" id="floatingInput" placeholder="Price100">
+                <label asp-for="Price100">Price100</label>
+                <span asp-validation-for="Price100" class="text-danger"></span>
+            </div>
+
+            <div class="ps-2">
+                <input type="file" class="form-control mb-3 p-2" />
+            </div>
+
+
+            <div class="ps-2">
+                <select asp-for="CategoryId" asp-items="ViewBag.CategoryList" class="form-select form-select-sm p-2" aria-label=".form-select-lg example">
+                    <option disabled selected>Select Category</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger mb-2"></span><br />
+            </div>
+
+           
+            <div class="ps-2">
+                <select asp-for="CoverTypeId" asp-items="ViewBag.CoverTypeList" class="form-select form-select-sm p-2" aria-label=".form-select-lg example">
+                    <option disabled selected>Select CoverTypeList</option>
+                </select>
+                <span asp-validation-for="CoverTypeId" class="text-danger mb-2"></span><br />
+            </div>
+           
+            <div>
+                <button type="submit" class="btn btn-outline-primary mt-2">Update</button>
+            </div>
+            
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

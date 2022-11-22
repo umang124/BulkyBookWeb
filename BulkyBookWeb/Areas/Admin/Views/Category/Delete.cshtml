@@ -1,0 +1,19 @@
+﻿@using BulkyBook.Models;
+@model Category
+
+<div class="card shadow-lg p-3 mb-5 rounded mx-auto col-7">
+    <form method="post" asp-controller="Category" asp-action="Delete">
+        <h3 class="text-center">Delete Category</h3>
+        <div class="form-floating mb-3">
+            <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="Name" disabled>
+            <label asp-for="Name">Name</label>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="DisplayOrder" type="text" class="form-control" id="floatingInput" placeholder="Display Order" disabled>
+            <label asp-for="DisplayOrder">Display Order</label>
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">Delete</button>
+    </form>
+</div>

@@ -1,0 +1,14 @@
+﻿@using BulkyBook.Models;
+@model CoverType
+
+<div class="card shadow-lg p-3 mb-5 rounded mx-auto col-7">
+    <form method="post" asp-action="Edit" asp-controller="CoverType">
+        <h3 class="text-center">Edit CoverType</h3>
+        <div class="form-floating mb-3">
+            <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="Name">
+            <label asp-for="Name">Name</label>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Update</button>
+    </form>
+</div>
